@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body>
+    <div id='app'></div>
+    
+    <script type='text/babel'>
+        const name = 'Ramiro Bedoya.'
+        const username = '@imramiro'
+        const img = 'https://avatars1.githubusercontent.com/u/6548822?v=3&s=460'
+
+        function NameComponent (props){
+            return <h1>Name: {props.name} </h1>
+        }
+        function UsernameComponent (props){
+            return <h3><i>username: {props.username}</i></h3>
+        }
+        function ImgComponent (props){
+            return <img src={props.img} />
+
+        }
+
+        function Badge () {
+            return (
+                <div>
+                    <ImgComponent img={img} />
+                    <NameComponent name={name} />
+                    <UsernameComponent username={username} />
+                </div>
+            )
+        }
+        function BadgeAlternative (props) {
+            return (
+                <div>
+                    <img src={props.img} />
+                    <h1>Name: {props.name}</h1>
+                    <h3>username: {props.username}</h3>
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <BadgeAlternative 
+                name='Tyler McGinnis'
+                username='tylermcginnis'
+                img='https://avatars0.githubusercontent.com/u/2933430?v=3&s=460'
+            />,
+            document.getElementById('app')
+        )
+        /*ReactDOM.render(
+            <Badge />,
+            document.getElementById('app')
+        );*/
+    </script>
+</body>
+</html>
